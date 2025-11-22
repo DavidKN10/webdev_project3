@@ -98,3 +98,57 @@ a:hover {
   text-decoration: underline;
   color: #0ea5e9;
 }
+
+@media (min-width: 600px) {
+  body {
+    font-size: 17px;
+  }
+
+  #container {
+    padding: 24px;
+  }
+
+  #main-nav ul {
+    gap: 2.5rem;
+    padding: 14px 12px;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  img {
+    border-radius: 12px;
+  }
+}
+
+@media (min-width: 900px) {
+  #container {
+    max-width: 70rem;
+  }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  #main-nav ul {
+    justify-content: center;
+    gap: 3rem;
+    padding: 16px 16px;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  ul {
+    margin-left: 2.2em;
+  }
+
+  body#resume-page #container {
+    width: 900px;
+    max-width: none;
+  }
+}
