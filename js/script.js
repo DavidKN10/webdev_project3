@@ -7,14 +7,14 @@ const coordinates = {
 function initMap() {
   let map = new google.maps.Map(document.getElementById("map"), {
     zoom: 12,
-    center: coordinates 
+    center: coordinates,
+    mapId: "map_id" 
   });
 
-  /*
-  new google.maps.Marker({
-    position: coordinates,
+  
+  const marker = new google.maps.marker.AdvancedMarkerElement({
     map: map,
-    title: "Hello!"
+    position: coordinates,
+    title: "Illinois Institute of Technology"
   });
-  */
 }
