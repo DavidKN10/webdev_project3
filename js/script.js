@@ -1,21 +1,38 @@
+let map;
+let trafficLayer;
+
 const iitCoordinates = {
   // IIT coordinates 
   lat: 41.8367,
   lng: -87.626
 }
 
-
-
 function initMap() {
+
+  // create map
   map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 12,
+    zoom: 10,
     center: iitCoordinates,
     mapId: "map_id" 
   });
 
-  const traffic = new google.maps.TrafficLayer().setMap(map);
 
-  
+  // traffic layer
+  trafficLayer = new google.maps.TrafficLayer();
+  trafficLayer.setMap(map);
+
+  const trafficButton = document.getElementById("toggle-traffic");
+  if (trafficButton) {
+    let trafficOn = true;
+
+    trafficButton.addEventListener("click", () => {
+      trafficOn = !trafficOn;
+      trafficLayer.setMap(trafficOn ? map : null);
+      trafficButton.textContent = trafficOn ? "Hide Traffic" : "Show Traffic";
+    });
+  }
+ 
+  // marker with info window
   const marker = new google.maps.marker.AdvancedMarkerElement({
     map: map,
     position: iitCoordinates,
