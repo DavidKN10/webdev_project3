@@ -51,5 +51,21 @@ function initMap() {
       map
     });
   }); 
+
+  // polyline route through IIT and some Chicago landmarks
+  const routeCoordinates = [
+    { lat: 41.8781, lng: -87.6298 }, // Downtown
+    { lat: 41.8827, lng: -87.6233 }, // Millenium Park
+    { lat: 41.8916, lng: -87.6079 },  // Navy Pier
+    iitCoordinates
+  ];
+
+  const routePolyline = new google.maps.Polyline({
+    path: routeCoordinates,
+    map,
+    strokeColor: "#ff0000",
+    strokeOpacity: 1.0,
+    strokeWeight: 4
+  }); 
 }
 
