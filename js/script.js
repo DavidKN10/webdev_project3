@@ -67,5 +67,13 @@ function initMap() {
     strokeOpacity: 1.0,
     strokeWeight: 4
   }); 
+
+  // questions button
+  const questionsButton = document.getElementById("questions-button");
+  if (questionsButton) {
+    questionsButton.addEventListener("click", () => {
+      alert("If you have questions, contact me at:\ndavidrs23178@gmail.com");
+    });
+  }
 }
 
