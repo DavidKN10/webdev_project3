@@ -40,9 +40,24 @@ function initMap() {
   });
 
   const info = new google.maps.InfoWindow({
-    content: `<h3>Illinois Institute of Technology</h3>
+    content: `<img src="img/iit.jpg">
+              <h3>Illinois Institute of Technology</h3>
               <p>This is the university I go to.</p>
-              <style>h3{color:black}p{color:black}</style>`,
+              <style>
+                h3 {
+                  color:black
+                }
+
+                p {
+                  color:black
+                }
+
+                img {
+                  height: auto;
+                  width: 125px;
+                }
+              </style>
+              `,
   });
 
   marker.addListener("click", () => {
