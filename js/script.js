@@ -1,4 +1,5 @@
 let map;
+let mapType;
 let trafficLayer;
 
 const iitCoordinates = {
@@ -8,14 +9,13 @@ const iitCoordinates = {
 }
 
 function initMap() {
-
   // create map
   map = new google.maps.Map(document.getElementById("map"), {
     zoom: 10,
     center: iitCoordinates,
-    mapId: "map_id" 
+    mapId: "map_id",
+    mapTypeId: "roadmap"
   });
-
 
   // traffic layer
   trafficLayer = new google.maps.TrafficLayer();
@@ -30,6 +30,23 @@ function initMap() {
       trafficLayer.setMap(trafficOn ? map : null);
       trafficButton.textContent = trafficOn ? "Hide Traffic" : "Show Traffic";
     });
+  }
+
+  // map type
+  const mapTypeButton = document.getElementById("map-type");
+  if (mapTypeButton) {
+    const types = ["roadmap", "hybrid", "terrain"];
+    let index = 0;
+
+    mapTypeButton.addEventListener("click", () => {
+      index = (index + 1) % types.length;
+      const nextType = types[index];
+
+      map.setMapTypeId(nextType);
+      mapTypeButton.textContent = nextType;
+    });
+
+    mapTypeButton.textContent = "roadmap"
   }
  
   // marker with info window
@@ -69,8 +86,8 @@ function initMap() {
 
   // polyline route through IIT and some Chicago landmarks
   const routeCoordinates = [
-    { lat: 41.8781, lng: -87.6298 }, // Downtown
-    { lat: 41.8827, lng: -87.6233 }, // Millenium Park
+    { lat: 41.8781, lng: -87.6298 },  // Downtown
+    { lat: 41.8827, lng: -87.6233 },  // Millenium Park
     { lat: 41.8916, lng: -87.6079 },  // Navy Pier
     iitCoordinates
   ];
